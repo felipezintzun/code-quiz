@@ -1,22 +1,25 @@
-let count;
-let numQuestions = questions;
-let currentQuestion; 
-let userAnswers = [];
+var count;
+var numQuestions = questions;
+var currentQuestion; 
+var userAnswers = [];
+var gameStop = true;
+var gameScore;
 
-let time = document.getElementById("timer");
-let startBtn = document.getElementById("start");
+var time = document.getElementById("timer");
+var startBtn = document.getElementById("start");
 startBtn.addEventListener("click", newGame);
 
 // GET EACH CONTAINER <div>
-let welcomeDiv = document.querySelector(".welcome-container");
-let questionDiv = document.querySelector(".questions-container");
+var welcomeDiv = document.querySelector(".welcome-container");
+var questionDiv = document.querySelector(".questions-container");
+let formDiv = document.querySelector(".form-container");
+var leaderboard = document.querySelector(".user-scores");
 
 
 
 
-
-let qTitle = document.getElementById("question-title");
-let qChoices = document.getElementById("question-choices");
+var qTitle = document.getElementById("question-title");
+var qChoices = document.getElementById("question-choices");
 
 // NEW GAME FUNCTION
 function newGame() {
@@ -77,6 +80,16 @@ function check() {
     }
 };
 
+function check() {
+    // TEST HOW MANY QUESTIONS LEFT
+    if (currentQuestion === numQuestions) {
+        // Run gameOver function
+        gameOver();
+    } else {
+        loadQuestion();
+    }
+} 
+
 // LOAD QUESTIONS
 function loadQuestion() {
     // Clear question title
@@ -108,6 +121,42 @@ function loadQuestion() {
     }
 
 };
+
+function next(e){
+    if(event.target.innerText === questions[currentQuestion].answer) {
+        gameScore += 10;
+    }
+
+    // Increment currentQuestion
+    currentQuestion++;
+
+    // Run check
+    check();
+
+}
+
+function gameOver() {
+    // Set gameStop variable to TRUE
+    gameStop = true;
+
+    // Clear countdown timer
+    clearInterval(timerInterval);
+    time.textContent = "- -";
+
+    // Add any time left to game score
+    gameScore += count;
+
+    // Hide question container
+    questionDiv.classList.add("hide");
+
+    // Display Game Score
+    score.textContent = gameScore;
+    // Un-hide form container
+    formDiv.classList.remove("hide");
+    // Clear form input field
+    username.value = '';
+}
+
 
 //  QUESTIONS 
 var questions = [
