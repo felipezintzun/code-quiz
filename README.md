@@ -1,10 +1,8 @@
 Code-Quiz
-Please visit the deployed project at: 
+Visit my project at: https://felipezintzun.github.io/code-quiz/
 
 Description
-The purpose of this assignment was to create a timer-based coding assessment using  JavaScript that behaves like so:
+The purpose of this project was to create a coding quiz that had a time limit and a leaderboard at the end.
 
-The application has a few multiple choice questions and the ability to store top scores on the user's device. The number of questions decides the length of time for the quiz (15 seconds/question) once the user clicks "Start", but they are penalized 10 seconds if they answer a question incorrectly. The final score is based on the amount remaining on the timer.
-
-At the end of the quiz (when the user answers all questions or time is up), upon viewing their score, the user is able to enter their initials to add their score to the High Scores list. Once they enter their initials, the scoreboard will appear with an option to clear the board or restart the quiz.
+When the user first visits the site they get some instructions. They are then prompted to click on a "start" button. Once they do that the timer starts (75 seconds). They have several multiple choice questions to get through. After completing the quiz they receive a score. They are then able to type in their name so that their score is added to a leaderboard. 
 
