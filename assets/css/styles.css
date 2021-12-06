@@ -141,8 +141,55 @@ body {
     font-size: 1.2rem;
 }
 
+/** -- FORM --**/
+/* -------- FORM STYLES -------- */
+
+.form-container {
+    height: 30vh;
+    width: 70%;
+    background: rgba(87, 192, 241, 0.39);
+    text-align: center;
+    padding: 20px 20px;
+    border-radius: 1rem;
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  #user-score {
+      font-size: 3rem;
+      color:  rgb(236, 144, 39);
+  }
+  
+  .label {
+      font-size: 1.2rem;
+      font-weight: 600;
+  }
+  
+  #username {
+      height: 2rem;
+      width: 25%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+  }
+  
+  #userSubmit {
+    padding: 1rem 1rem;
+    margin: 15px 20px;
+    background: rgb(236, 144, 39);
+    border: 0.2em solid rgb(81, 211, 243);
+    border-radius: 2rem;
+  }
+  
+  #userSubmit:hover {
+    background: rgba(81, 211, 243, 0.699);
+    color: #fff;
+    cursor: pointer;
+  }
+
 /** -- FOOTER -- **/
-/* -------- FOOTER STYLES -------- */
 
 .footer {
     position: absolute;

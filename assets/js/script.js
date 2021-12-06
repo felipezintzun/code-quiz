@@ -4,8 +4,11 @@ var currentQuestion;
 var userAnswers = [];
 var gameStop = true;
 var gameScore;
+var timerInterval;
 
 var time = document.getElementById("timer");
+var score = document.getElementById("user-score");
+
 var startBtn = document.getElementById("start");
 startBtn.addEventListener("click", newGame);
 
@@ -37,7 +40,7 @@ function newGame() {
 
     // ** Initialize Timer ** //
     // Define amount of game time (in seconds)
-    count = 75;
+    count = 5;
     // call timer function to initiate timerInterval
     timer();
     // Show time on the DOM
@@ -80,15 +83,6 @@ function check() {
     }
 };
 
-function check() {
-    // TEST HOW MANY QUESTIONS LEFT
-    if (currentQuestion === numQuestions) {
-        // Run gameOver function
-        gameOver();
-    } else {
-        loadQuestion();
-    }
-} 
 
 // LOAD QUESTIONS
 function loadQuestion() {
@@ -96,12 +90,12 @@ function loadQuestion() {
     qTitle.textContent = '';
     qChoices.textContent = '';
 
-    for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
+    for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
         qTitle.textContent = questions[currentQuestion].title;
 
         //-- Render a new <li> for each question choice --//
         // Create li element for each answer choice
-        let ansChoice = document.createElement("li");
+        var ansChoice = document.createElement("li");
         // Add 'id' attribute to each choice 
         ansChoice.setAttribute("id", i);
         // Add 'data' attribute to each choice
@@ -134,7 +128,7 @@ function next(e){
     check();
 
 }
-
+// GAME OVER 
 function gameOver() {
     // Set gameStop variable to TRUE
     gameStop = true;
@@ -157,6 +151,49 @@ function gameOver() {
     username.value = '';
 }
 
+function saveUser(event) {
+    // Prevent the form from reloading the page
+    event.preventDefault();
+    // Check that the input is NOT empty
+    if (username.value == '') {
+        return;
+    }
+
+    let tempArray = localStorage.getItem("userScores");
+    // TEST Do we have a JSON object called 'userScores' stored in localStorage?
+    let parsedTempArray = JSON.parse(tempArray);
+    // IF we DO have stored data in localStorage run the following
+    if (parsedTempArray !== null) {
+        // Add current game score to high score array
+        parsedTempArray.push(
+            {
+                username: username.value,
+                score: gameScore
+            }
+        );
+
+        // Sort data from highest to lowest before storing in localStorage
+        sortScores(parsedTempArray);
+
+        // Save updated JavaScript OBJECT to local storage by turning it into a JSON OBJECT
+        localStorage.setItem('userScores', JSON.stringify(parsedTempArray));
+    } else {  
+        // ELSE - the userScores OBJECT was cleared and we need to create a new ARRAY to put our JS Object into, convert it and store it.
+        let highScoreArray = [];
+        // Add current game score to high score array
+        highScoreArray.push(
+            {
+                username: username.value,
+                score: gameScore
+            }
+        );
+        localStorage.setItem('userScores', JSON.stringify(highScoreArray));
+    }
+    // Clear form input field
+    username.value = '';
+    // Display the Leader Board
+    showLeader();
+};
 
 //  QUESTIONS 
 var questions = [
