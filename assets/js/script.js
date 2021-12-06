@@ -75,13 +75,14 @@ function timer() {
 // CHECKS NUMBER OF QUESTIONS
 function check() {
     // TEST HOW MANY QUESTIONS LEFT
-    if (currentQuestion === numQuestions) {
+    if (currentQuestion < numQuestions) {
         // Run gameOver function
         gameOver();
     } else {
         loadQuestion();
     }
 };
+
 
 
 // LOAD QUESTIONS
@@ -116,6 +117,8 @@ function loadQuestion() {
 
 };
 
+
+
 function next(e){
     if(event.target.innerText === questions[currentQuestion].answer) {
         gameScore += 10;
@@ -137,9 +140,6 @@ function gameOver() {
     clearInterval(timerInterval);
     time.textContent = "- -";
 
-    // Add any time left to game score
-    gameScore += count;
-
     // Hide question container
     questionDiv.classList.add("hide");
 
@@ -149,65 +149,11 @@ function gameOver() {
     formDiv.classList.remove("hide");
     // Clear form input field
     username.value = '';
-}
-
-function saveUser(event) {
-    // Prevent the form from reloading the page
-    event.preventDefault();
-    // Check that the input is NOT empty
-    if (username.value == '') {
-        return;
-    }
-
-    let tempArray = localStorage.getItem("userScores");
-    // TEST Do we have a JSON object called 'userScores' stored in localStorage?
-    let parsedTempArray = JSON.parse(tempArray);
-    // IF we DO have stored data in localStorage run the following
-    if (parsedTempArray !== null) {
-        // Add current game score to high score array
-        parsedTempArray.push(
-            {
-                username: username.value,
-                score: gameScore
-            }
-        );
-
-        // Sort data from highest to lowest before storing in localStorage
-        sortScores(parsedTempArray);
-
-        // Save updated JavaScript OBJECT to local storage by turning it into a JSON OBJECT
-        localStorage.setItem('userScores', JSON.stringify(parsedTempArray));
-    } else {  
-        // ELSE - the userScores OBJECT was cleared and we need to create a new ARRAY to put our JS Object into, convert it and store it.
-        let highScoreArray = [];
-        // Add current game score to high score array
-        highScoreArray.push(
-            {
-                username: username.value,
-                score: gameScore
-            }
-        );
-        localStorage.setItem('userScores', JSON.stringify(highScoreArray));
-    }
-    // Clear form input field
-    username.value = '';
-    // Display the Leader Board
-    showLeader();
 };
+
 
 //  QUESTIONS 
 var questions = [
-    {
-        title: "Question 1",
-        choices: [
-          "A",
-          "B",
-          "C",
-          "D"
-        ],
-      answer: "A"
-    },
-
     {
         title: "Question 1",
         choices: [
@@ -265,6 +211,17 @@ var questions = [
 
     {
         title: "Question 6",
+        choices: [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+      answer: "A"
+    },
+
+    {
+        title: "Question 7",
         choices: [
           "A",
           "B",
