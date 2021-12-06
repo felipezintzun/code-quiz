@@ -26,37 +26,19 @@ body {
 }
 
 .nav-item {
-    margin: 10px 20px;
+    margin: 10px 40px;
     color: white;
 }
-
-/* .title-block {
-    background:#05386b;
-    height: 100%;
-    margin-top: -20px;
-    text-align: center;
-    border-radius: 1rem;
-    padding: 5px 20px;
-} */
 
 #navTitle {
     font-size: 3rem;
     font-weight: 700;
-    /* padding-top: 0.3rem; */
     color: white;
 }
 
-/* .leader-link {
-    text-decoration: none;
-    color: #000; 
-    color: #fff;
-    letter-spacing: 0.05rem;
-    cursor: pointer;   
-} */
 
 .main {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     min-height: 70vh;
@@ -74,7 +56,7 @@ body {
     color: white;
     font-style: italic;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .instruction-text {
@@ -109,9 +91,7 @@ body {
 }
 
 /** -- QUESTIONS STYLES -- **/
-
 .questions-container {
-    /* height: 30vh; */
     width: 70%;
     background-image: linear-gradient(to bottom right, #8860d0, #5ab9ea);
     text-align: center;
@@ -131,8 +111,8 @@ body {
 }
 
 .questions-container > ul > li {
-    background: #84ceeb;
-    padding: 10px 10px;
+    background: #5680e9;
+    padding: 5px 5px;
     margin: 10px 0px;
     border: none;
     border-radius: 6px;
@@ -142,10 +122,9 @@ body {
 .questions-container > ul > li:hover {
     background: #8860d0;
     border-radius: 2px solid rgba(87, 192, 241, 0.89);
-    box-shadow: 2px 2px 5px #888888;
+    box-shadow: 2px 2px 5px #696969;
     color: #fff;
     font-size: 1rem;
-    /* font-weight: 600; */
 }
 
 .choice-lbl {
@@ -155,8 +134,6 @@ body {
 }
 
 /** -- FORM --**/
-/* -------- FORM STYLES -------- */
-
 .form-container {
     height: 30vh;
     width: 70%;
@@ -168,11 +145,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    color: white;
   }
   
   #user-score {
-      font-size: 3rem;
-      color:  rgb(236, 144, 39);
+      font-size: 6rem;
+      font-style: italic;
+      color:  #84ceeb;
+      
   }
   
   .label {
@@ -186,18 +166,20 @@ body {
       padding: 12px 20px;
       margin: 8px 0;
       box-sizing: border-box;
+      border: none;
   }
   
   #userSubmit {
     padding: 1rem 1rem;
     margin: 15px 20px;
-    background: rgb(236, 144, 39);
-    border: 0.2em solid rgb(81, 211, 243);
-    border-radius: 2rem;
+    background: #84ceeb;
+    border: none;
+    border-radius: 8px;
+    color:white
   }
   
   #userSubmit:hover {
-    background: rgba(81, 211, 243, 0.699);
+    background: #8860d0;
     color: #fff;
     cursor: pointer;
   }
@@ -213,7 +195,6 @@ body {
     font-family: 'Public Sans', sans-serif;
     font-weight: 300;
     height: 40px;
-    /* background-color: #8860d0; */
     text-align: center;
     margin-top: 30px;
 }
