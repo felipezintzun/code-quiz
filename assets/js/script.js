@@ -75,7 +75,7 @@ function timer() {
 // CHECKS NUMBER OF QUESTIONS
 function check() {
     // TEST HOW MANY QUESTIONS LEFT
-    if (currentQuestion >= numQuestions.length) {
+    if (currentQuestion >= questions.length) {
         // Run gameOver function
         gameOver();
     } else {
@@ -177,58 +177,45 @@ var questions = [
     },
 
     {
-        title: "Question 3",
+        title: "What is wireframing?",
         choices: [
-          "A",
-          "B",
-          "C",
-          "D"
+          "A blueprint of our website's page layout.",
+          "A 3D model of our websites structure made from wires.",
+          "A CSS library that helps in the creation of borders around our boxed elements.",
+          "Wireframing helps us quickly set up our HTML page."
         ],
-      answer: "A"
+      answer: "A blueprint of our website's page layout."
     },
 
     {
-        title: "Question 4",
+        title: "How would I check which files are staged, unstaged, and untracked using git commands?",
         choices: [
-          "A",
-          "B",
-          "C",
-          "D"
+          "git commit -m",
+          "git fetch",
+          "git add .",
+          "git status"
         ],
-      answer: "A"
+      answer: "git status"
     },
 
     {
-        title: "Question 5",
+        title: "What is the command we use to create a new file?",
         choices: [
-          "A",
-          "B",
-          "C",
-          "D"
+          "touch",
+          "cd",
+          "pwd",
+          "mkdir"
         ],
-      answer: "A"
+      answer: "touch"
     },
 
     {
-        title: "Question 6",
+        title: "JavaScript is the same as Java.",
         choices: [
-          "A",
-          "B",
-          "C",
-          "D"
+          "True",
+          "False"
         ],
-      answer: "A"
-    },
-
-    {
-        title: "Question 7",
-        choices: [
-          "A",
-          "B",
-          "C",
-          "D"
-        ],
-      answer: "A"
+      answer: "True"
     },
   ];
   
