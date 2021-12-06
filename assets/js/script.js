@@ -40,7 +40,7 @@ function newGame() {
 
     // ** Initialize Timer ** //
     // Define amount of game time (in seconds)
-    count = 5;
+    count = 75;
     // call timer function to initiate timerInterval
     timer();
     // Show time on the DOM
@@ -75,7 +75,7 @@ function timer() {
 // CHECKS NUMBER OF QUESTIONS
 function check() {
     // TEST HOW MANY QUESTIONS LEFT
-    if (currentQuestion < numQuestions) {
+    if (currentQuestion >= numQuestions.length) {
         // Run gameOver function
         gameOver();
     } else {
@@ -155,25 +155,25 @@ function gameOver() {
 //  QUESTIONS 
 var questions = [
     {
-        title: "Question 1",
+        title: "Inside which HTML element do we put the JavaScript?",
         choices: [
-          "A",
-          "B",
-          "C",
-          "D"
+          "<js>",
+          "<scripting>",
+          "<javascript>",
+          "<script>"
         ],
-      answer: "A"
+      answer: "<script>"
     },
 
     {
-        title: "Question 2",
+        title: "Where is the correct place to insert a JavaScript?",
         choices: [
-          "A",
-          "B",
-          "C",
-          "D"
+          "The <head> section",
+          "Both the <head> section and the <body> section are correct",
+          "The <body> section",
+          "The <footer> section"
         ],
-      answer: "A"
+      answer: "Both the <head> section and the <body> section are correct"
     },
 
     {
