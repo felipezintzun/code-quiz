@@ -20,6 +20,30 @@ var leaderboard = document.querySelector(".user-scores");
 
 var qTitle = document.getElementById("question-title");
 var qChoices = document.getElementById("question-choices");
+var userSubmit = document.getElementById("userSubmit");
+var leaderScore = document.querySelector(".leaderScore");
+
+userSubmit.addEventListener("click", function(event) {
+  event.preventDefault()
+  var userName = document.getElementById ("userName").value  
+  var prevUser = JSON.parse(localStorage.getItem("codeQuiz")) || []
+  prevUser.push({
+    user:userName, score:gameScore
+  })
+  localStorage.setItem("codeQuiz", JSON.stringify(prevUser))
+  console.log(userName, prevUser,"ls")
+
+  formDiv.classList.add("hide")
+  leaderScore.classList.remove("hide")
+
+  let liTags=""
+
+for (let i = 0; i < prevUser.length; i ++) {
+  liTags += `<li class="leadername"> ${prevUser[i].user} - ${prevUser[i].score}</li>`
+}
+document.getElementById("leaders").innerHTML = liTags
+
+});
 
 // NEW GAME FUNCTION
 function newGame() {
@@ -107,7 +131,7 @@ function gameOver() {
 
     score.textContent = gameScore;
     formDiv.classList.remove("hide");
-    username.value = '';
+    userName.value = '';
 };
 
 
